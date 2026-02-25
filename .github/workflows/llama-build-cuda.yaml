@@ -21,21 +21,27 @@ jobs:
         cuda_config:
           - ver: 13.1.1
             short: cu131
-            arch: 75;80;
+            arch: 75;80
         pyver: ["3.13", "3.14"]
 
     steps:
+      - name: Install system dependencies
+        run: |
+          apt-get update
+          apt-get install -y software-properties-common git curl build-essential cmake libssl-dev
+
       - name: Checkout repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           submodules: recursive
 
-      - name: Setup uv and Python
-        uses: astral-sh/setup-uv@5a7eac68fb9809dea845d802897dc5c723910fa3 # v7
-        with:
-          version: "latest"
-          enable-cache: true
-          python-version: ${{ matrix.pyver }}
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install Python
+        run: uv python install ${{ matrix.pyver }}
 
       - name: Verify GLIBC version
         run: ldd --version
