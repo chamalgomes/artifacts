@@ -40,7 +40,6 @@ jobs:
             -DGGML_AVX512=OFF
             -DGGML_FMA=OFF
             -DGGML_F16C=OFF
-            -DLLAMA_SERVER_BUILD=OFF
             -DLLAMA_BUILD_SERVER=OFF
             -DLLAMA_BUILD_TESTS=OFF
             -DLLAMA_BUILD_EXAMPLES=OFF
