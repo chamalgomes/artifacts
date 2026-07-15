@@ -44,6 +44,8 @@ jobs:
             -DCMAKE_INSTALL_LIBDIR=llama_cpp/lib
             -DCMAKE_INSTALL_BINDIR=llama_cpp/lib
             -DCMAKE_INSTALL_INCLUDEDIR=llama_cpp/include
+            -DCMAKE_PLATFORM_NO_VERSIONED_SONAME=ON
+            -DCMAKE_BUILD_TYPE=MinSizeRel 
         working-directory: ./vendor/llama-cpp-python
         run: |
           # Rename the release version with +cpu build tag
