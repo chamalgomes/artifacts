@@ -28,7 +28,7 @@ jobs:
           activate-environment: true
           python-version: ${{ matrix.python-version }}
 
-      - name: Build wheel
+      - name: Build wheel
         env:
           VERBOSE: 1
           CMAKE_ARGS: >-
@@ -40,6 +40,10 @@ jobs:
             -DGGML_AVX512=OFF
             -DGGML_FMA=OFF
             -DGGML_F16C=OFF
+            -DLLAMA_SERVER_BUILD=OFF
+            -DLLAMA_BUILD_SERVER=OFF
+            -DLLAMA_BUILD_TESTS=OFF
+            -DLLAMA_BUILD_EXAMPLES=OFF
         working-directory: ./vendor/llama-cpp-python
         run: |
           # Rename the release version with +cpu build tag
