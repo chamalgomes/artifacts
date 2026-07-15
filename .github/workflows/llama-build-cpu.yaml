@@ -33,8 +33,6 @@ jobs:
           VERBOSE: 1
           CMAKE_ARGS: >-
             -DLLAVA_BUILD=off
-            -DGGML_BLAS=OFF
-            -DGGML_OPENMP=OFF
             -DGGML_AVX=OFF
             -DGGML_AVX2=OFF
             -DGGML_AVX512=OFF
@@ -43,6 +41,9 @@ jobs:
             -DLLAMA_BUILD_SERVER=OFF
             -DLLAMA_BUILD_TESTS=OFF
             -DLLAMA_BUILD_EXAMPLES=OFF
+            -DCMAKE_INSTALL_LIBDIR=llama_cpp/lib
+            -DCMAKE_INSTALL_BINDIR=llama_cpp/lib
+            -DCMAKE_INSTALL_INCLUDEDIR=llama_cpp/include
         working-directory: ./vendor/llama-cpp-python
         run: |
           # Rename the release version with +cpu build tag
