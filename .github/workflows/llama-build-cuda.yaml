@@ -72,9 +72,6 @@ jobs:
             -DLLAVA_BUILD=off
             -DCMAKE_CUDA_ARCHITECTURES=${{ matrix.cuda_config.arch }}
             -DGGML_CUDA_FORCE_MMQ=OFF
-            -DGGML_AVX2=on
-            -DGGML_FMA=on
-            -DGGML_F16C=on
             -DLLAMA_BUILD_EXAMPLES=OFF
             -DLLAMA_BUILD_TESTS=OFF
             -DLLAMA_BUILD_SERVER=OFF
