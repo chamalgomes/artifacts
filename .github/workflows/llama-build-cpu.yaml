@@ -28,7 +28,7 @@ jobs:
           activate-environment: true
           python-version: ${{ matrix.python-version }}
 
-      - name: Build source distribution
+      - name: Build wheel
         env:
           VERBOSE: 1
           CMAKE_ARGS: >-
