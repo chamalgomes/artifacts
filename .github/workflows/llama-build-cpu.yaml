@@ -29,6 +29,17 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Build source distribution
+        env:
+          VERBOSE: 1
+          CMAKE_ARGS: >-
+            -DLLAVA_BUILD=off
+            -DGGML_BLAS=OFF
+            -DGGML_OPENMP=OFF
+            -DGGML_AVX=OFF
+            -DGGML_AVX2=OFF
+            -DGGML_AVX512=OFF
+            -DGGML_FMA=OFF
+            -DGGML_F16C=OFF
         working-directory: ./vendor/llama-cpp-python
         run: |
           # Rename the release version with +cpu build tag
