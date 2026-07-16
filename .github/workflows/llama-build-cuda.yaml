@@ -24,7 +24,7 @@ jobs:
             arch: 80
           - ver: 13.1.1
             short: cu131
-            arch: 80
+            arch: 75
         pyver: ["3.14"]
 
     defaults:
