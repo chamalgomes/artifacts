@@ -78,9 +78,9 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS="-L/usr/local/cuda/lib64/stubs -lcuda"
             -DGGML_NATIVE=OFF
             -DGGML_AVX=ON
-            -DGGML_AVX2=OFF
-            -DGGML_FMA=OFF
-            -DGGML_F16C=OFF
+            -DGGML_AVX2=ON
+            -DGGML_FMA=ON
+            -DGGML_F16C=ON
             -DGGML_AVX512=OFF
         run: |
           # Rename the release version with +cu{cuda_ver} build tag
