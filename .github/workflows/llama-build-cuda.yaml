@@ -21,7 +21,7 @@ jobs:
         cuda_config:
           - ver: 13.2.1
             short: cu132
-            arch: 80
+            arch: 75
           - ver: 13.1.1
             short: cu131
             arch: 75
