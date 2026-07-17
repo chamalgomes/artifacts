@@ -21,10 +21,10 @@ jobs:
         cuda_config:
           - ver: 13.2.1
             short: cu132
-            arch: 80
+            arch: 75
           - ver: 13.1.1
             short: cu131
-            arch: 80
+            arch: 75
         pyver: ["3.14"]
 
     defaults:
@@ -72,13 +72,16 @@ jobs:
             -DLLAVA_BUILD=off
             -DCMAKE_CUDA_ARCHITECTURES=${{ matrix.cuda_config.arch }}
             -DGGML_CUDA_FORCE_MMQ=OFF
-            -DGGML_AVX2=on
-            -DGGML_FMA=on
-            -DGGML_F16C=on
             -DLLAMA_BUILD_EXAMPLES=OFF
             -DLLAMA_BUILD_TESTS=OFF
             -DLLAMA_BUILD_SERVER=OFF
             -DCMAKE_EXE_LINKER_FLAGS="-L/usr/local/cuda/lib64/stubs -lcuda"
+            -DGGML_NATIVE=OFF
+            -DGGML_AVX=ON
+            -DGGML_AVX2=ON
+            -DGGML_FMA=ON
+            -DGGML_F16C=ON
+            -DGGML_AVX512=OFF
         run: |
           # Rename the release version with +cu{cuda_ver} build tag
           sed -i 's/__version__ = "\([^"]*\)"/__version__ = "\1+${{ matrix.cuda_config.short }}"/' llama_cpp/__init__.py
