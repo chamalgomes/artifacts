@@ -19,12 +19,9 @@ jobs:
       fail-fast: false
       matrix:
         cuda_config:
-          - ver: 13.2.1
+          - ver: 13.4.1
             short: cu132
-            arch: 75;80
-          - ver: 13.1.1
-            short: cu131
-            arch: 75;80
+            arch: 75
         pyver: ["3.14"]
 
     defaults:
