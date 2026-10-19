@@ -22,7 +22,7 @@ jobs:
           - ver: 13.4.1
             short: cu134
             arch: 75
-            os: 22.04
+            os: 24.04
         pyver: ["3.14"]
 
     defaults:
