@@ -10,7 +10,7 @@ jobs:
     name: Build Wheel CUDA ${{ matrix.cuda_config.ver }} Py ${{ matrix.pyver }}
     runs-on: ubuntu-latest
     container:
-      image: nvidia/cuda:${{ matrix.cuda_config.ver }}-devel-ubuntu24.04
+      image: nvidia/cuda:${{ matrix.cuda_config.ver }}-devel-ubuntu${{ matrix.cuda_config.os }}
     permissions:
       id-token: write
       contents: write
@@ -22,6 +22,7 @@ jobs:
           - ver: 13.4.1
             short: cu134
             arch: 75
+            os: 26.04
         pyver: ["3.14"]
 
     defaults:
