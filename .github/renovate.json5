@@ -2,15 +2,15 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
     'config:recommended',
+    'helpers:pinGitHubActionDigests',
   ],
   enabledManagers: [
     'github-actions',
   ],
   packageRules: [
     {
-      description: 'Pin GitHub Actions to digests',
-      extends: [
-        'helpers:pinGitHubActionDigests',
+      matchManagers: [
+        'github-actions',
       ],
       labels: [
         'CICD',
