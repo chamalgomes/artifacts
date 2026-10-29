@@ -56,7 +56,7 @@ jobs:
           apt-get install -y software-properties-common git curl build-essential cmake libssl-dev
 
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           submodules: recursive
 
@@ -111,7 +111,7 @@ jobs:
         run: ls -lh vendor/llama-cpp-python/dist/*.whl
 
       - name: Upload Release Assets
-        uses: softprops/action-gh-release@5be0e66d93ac7ed76da52eca8bb058f665c3a5fe # v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           files: vendor/llama-cpp-python/dist/*.whl
           tag_name: ${{ github.ref_name }}
