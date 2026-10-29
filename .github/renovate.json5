@@ -12,6 +12,7 @@
       matchManagers: [
         'github-actions',
       ],
+      groupName: 'GitHub Actions',
       labels: [
         'CICD',
         'ignore-for-release',
