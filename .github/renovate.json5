@@ -3,6 +3,9 @@
   extends: [
     'config:recommended',
   ],
+  enabledManagers: [
+    'github-actions',
+  ],
   packageRules: [
     {
       description: 'Pin GitHub Actions to digests',
